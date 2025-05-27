@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SLMP</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="c.png">
+  <style>
+
+	* {
+	cursor: url('a.png'), auto;
+	}
+	body {
+	text-align: center;
+	background-color: white;
+	color: black;
+	font-family: 'Times New Roman', Times, serif;
+	margin: 0;
+	padding: 0;
+	}
+
+	.container {
+	position: relative;
+	display: inline-block;
+	margin-top: 100px;
+	}
+
+	#cigarette {
+	width: 200px;
+	}
+
+	#status {
+	position: absolute;
+	width:250px;
+	top: 110%;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: rgba(255, 255, 255, 0.8);
+	padding: 10px 20px;
+	border: 2px solid black;
+	border-radius: 10px;
+	display: none;
+	font-size: 20px;
+	font-weight: bold;
+	}
+
+  </style>
+</head>
+<body>
+  <main>
+    <div class="container">
+      <img id="cigarette" src="c.png" alt="Cigarette">
+      <div id="status">Sei la mia puttana adesso.</div>
+    </div>
+  </main>
+  <script>
+	const cigarette = document.getElementById('cigarette');
+	const statusText = document.getElementById('status');
+
+	cigarette.addEventListener('mouseenter', () => {
+	statusText.style.display = 'block';
+	});
+
+	cigarette.addEventListener('mouseleave', () => {
+	statusText.style.display = 'none';
+	});
+  </script>
+</body>
+</html>
