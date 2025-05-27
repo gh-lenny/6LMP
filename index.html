@@ -7,56 +7,45 @@
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" href="c.png">
   <style>
-
-	* {
-	cursor: url('a.png'), auto;
-	}
-	body {
-	text-align: center;
-	background-color: white;
-	color: black;
-	font-family: 'Times New Roman', Times, serif;
-	margin: 0;
-	padding: 0;
-	}
-
-	.container {
-	position: relative;
-	display: inline-block;
-	margin-top: 100px;
-	}
-
-  #cigarette {
-    width: 200px;
-    height: 200px;
-    background-image: url('c.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    margin: 0 auto;
-    cursor: url('a.png'), auto;
-    transition: background-image 0.3s ease;
-  }
-
-  #cigarette:hover {
-    background-image: url('cc.png');
-  }
-
-
-	#status {
-	position: absolute;
-	width:250px;
-	top: 110%;
-	left: 50%;
-	transform: translateX(-50%);
-	background-color: rgba(255, 255, 255, 0.8);
-	padding: 10px 20px;
-	border: 2px solid black;
-	border-radius: 10px;
-	display: none;
-	font-size: 20px;
-	font-weight: bold;
-	}
-
+    * {
+      cursor: url('a.png'), auto;
+    }
+    body {
+      text-align: center;
+      background-color: white;
+      color: black;
+      font-family: 'Times New Roman', Times, serif;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      position: relative;
+      display: inline-block;
+      margin-top: 100px;
+    }
+    #cigarette {
+      width: 200px;
+      height: 200px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      margin: 0 auto;
+      cursor: url('a.png'), auto;
+    }
+    #status {
+      position: absolute;
+      width: 250px;
+      top: 110%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 10px 20px;
+      border: 2px solid black;
+      border-radius: 10px;
+      display: none;
+      font-size: 20px;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
@@ -67,16 +56,26 @@
     </div>
   </main>
   <script>
-	const cigarette = document.getElementById('cigarette');
-	const statusText = document.getElementById('status');
+    const cigarette = document.getElementById('cigarette');
+    const statusText = document.getElementById('status');
+    const imgNormal = 'c.png';
+    const imgHover = 'cc.png';
+    cigarette.style.backgroundImage = `url('${imgNormal}')`;
 
-	cigarette.addEventListener('mouseenter', () => {
-	statusText.style.display = 'block';
-	});
+    function showStatus() {
+      statusText.style.display = 'block';
+      cigarette.style.backgroundImage = `url('${imgHover}')`;
+    }
 
-	cigarette.addEventListener('mouseleave', () => {
-	statusText.style.display = 'none';
-	});
+    function hideStatus() {
+      statusText.style.display = 'none';
+      cigarette.style.backgroundImage = `url('${imgNormal}')`;
+    }
+
+    cigarette.addEventListener('mouseenter', showStatus);
+    cigarette.addEventListener('mouseleave', hideStatus);
+    cigarette.addEventListener('touchstart', showStatus);
+    cigarette.addEventListener('touchend', hideStatus);
   </script>
 </body>
 </html>
