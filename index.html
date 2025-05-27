@@ -26,9 +26,21 @@
 	margin-top: 100px;
 	}
 
-	#cigarette {
-	width: 200px;
-	}
+  #cigarette {
+    width: 200px;
+    height: 200px;
+    background-image: url('c.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    cursor: url('a.png'), auto;
+    transition: background-image 0.3s ease;
+  }
+
+  #cigarette:hover {
+    background-image: url('cc.png');
+  }
+
 
 	#status {
 	position: absolute;
@@ -50,7 +62,7 @@
 <body>
   <main>
     <div class="container">
-      <img id="cigarette" src="c.png" alt="Cigarette">
+      <div id="cigarette"></div>
       <div id="status">Sei la mia puttana adesso.</div>
     </div>
   </main>
